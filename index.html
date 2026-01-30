@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Nómade | Diseñamos el viaje de tus sueños</title>
+    <meta name="description"
+        content="Expertos en viajes con experiencia en los 5 continentes. Te ayudamos a armar tu viaje ideal con consejos reales y asistencia 24/7.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">PROYECTO NÓMADE</div>
+        <div class="nav-links">
+            <a href="#historia">Nuestra Historia</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#blog">Blog</a>
+            <a href="#contacto" class="btn btn-primary">Planificar Viaje</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="/assets/hero_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="/assets/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll para descubrir</p>
+        </div>
+    </section>
+
+    <!-- Headline Section -->
+    <section class="hero-content-section">
+        <div class="hero-content reveal">
+            <h1>Viajá con la tranquilidad de un experto</h1>
+            <p>De España a Bali, de Italia a Japón. Recorrimos el mundo para que vos solo tengas que disfrutarlo.
+                Diseñamos viajes a medida con experiencia real.</p>
+            <div class="hero-actions">
+                <a href="#servicios" class="btn btn-primary">Descubrí lo que hacemos</a>
+                <a href="#historia" class="btn btn-outline">Nuestra Trayectoria</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajectory Section -->
+    <section id="historia" class="trajectory">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-img reveal">
+                    <img src="/assets/story_collage.png" alt="Nuestra trayectoria por el mundo">
+                </div>
+                <div class="story-content reveal">
+                    <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                        <span>Nuestra Trayectoria</span>
+                        <h2>Más que turistas, somos nómades</h2>
+                    </div>
+                    <p>Todo comenzó con un sueño: conocer el mundo. Lo que empezó como un viaje de mochileros se
+                        convirtió en un estilo de vida que nos llevó a vivir en <strong>España, Italia, Grecia, Turquía,
+                            Bali, Tailandia, Japón, Costa Rica, Estados Unidos</strong> y más.</p>
+                    <p>Aprendimos a movernos en cada cultura, a encontrar esos rincones mágicos que no aparecen en las
+                        guías y a solucionar imprevistos en cualquier idioma.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4>25+</h4>
+                            <p>Países visitados</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>5</h4>
+                            <p>Continentes</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Pasión</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-title">
+                <span>Servicios</span>
+                <h2>¿Cómo podemos ayudarte?</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-comments"></i>
+                    <h3>Tips & Consejos</h3>
+                    <p>Consultanos tus dudas por WhatsApp. Te damos tips reales basados en nuestra experiencia en cada
+                        destino. Gratis para la comunidad.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Armado de Viajes</h3>
+                    <p>Diseñamos tu itinerario completo: vuelos, hospedajes clave y experiencias únicas. Un servicio
+                        premium para que no te preocupes por nada.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-robot"></i>
+                    <h3>Asistente IA 24/7</h3>
+                    <p>Acceso exclusivo a nuestro bot de WhatsApp. Ayuda inmediata para tradicciones, rutas o
+                        emergencias mientras estás de viaje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-title">
+                <span>Blog Nómades</span>
+                <h2>Noticias y Guías</h2>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card reveal">
+                    <div class="blog-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80')">
+                    </div>
+                    <div class="blog-body">
+                        <span>Sudeste Asiático</span>
+                        <h3>Guía definitiva para sobrevivir a Bali</h3>
+                        <p>Todo lo que necesitás saber antes de aterrizar en la isla de los dioses.</p>
+                        <a href="#" class="btn-text">Leer más →</a>
+                    </div>
+                </article>
+                <article class="blog-card reveal">
+                    <div class="blog-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80')">
+                    </div>
+                    <div class="blog-body">
+                        <span>Europa</span>
+                        <h3>Venecia: Rincones ocultos sin turistas</h3>
+                        <p>Descubrí la verdadera Venecia escapando de las multitudes.</p>
+                        <a href="#" class="btn-text">Leer más →</a>
+                    </div>
+                </article>
+                <article class="blog-card reveal">
+                    <div class="blog-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1540206395-6880f9490e44?auto=format&fit=crop&w=800&q=80')">
+                    </div>
+                    <div class="blog-body">
+                        <span>Tips</span>
+                        <h3>Equipaje inteligente: Menos es más</h3>
+                        <p>Cómo viajar 1 un mes con solo un carry-on sin morir en el intento.</p>
+                        <a href="#" class="btn-text">Leer más →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Bot Section -->
+    <section class="bot-section">
+        <div class="container">
+            <div class="bot-banner reveal">
+                <div class="bot-content">
+                    <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                        <span>Innovación</span>
+                        <h2>Llevanos en tu bolsillo</h2>
+                    </div>
+                    <p>Estamos trabajando para darte seguridad absoluta. Nuestros clientes tendrán acceso a un
+                        <strong>asistente personal vía WhatsApp</strong> que los acompañará durante todo su viaje.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #25D366; margin-right: 10px;"></i> Traducciones instantáneas</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #25D366; margin-right: 10px;"></i> Recomendaciones de comida local</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check"
+                                style="color: #25D366; margin-right: 10px;"></i> Soporte ante emergencias</li>
+                    </ul>
+                    <a href="https://wa.me/5491112345678" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i> Hablar con nosotros
+                    </a>
+                </div>
+                <div class="bot-visual">
+                    <img src="/assets/whatsapp_bot.png" alt="Asistente WhatsApp Proyecto Nómade">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Trips Waitlist -->
+    <section id="proximos-viajes" class="upcoming-trips">
+        <div class="container">
+            <div class="section-title">
+                <span>Próximamente</span>
+                <h2>Viajes Grupales</h2>
+                <p style="max-width: 600px; margin: 0 auto 40px; opacity: 0.8;">Estamos diseñando experiencias únicas
+                    para nuestra comunidad. Sumate a la lista para ser el primero en enterarte de las aperturas.</p>
+            </div>
+            <div class="waitlist-card reveal">
+                <form class="waitlist-form" action="https://formsubmit.co/proyecto.nomade.org@gmail.com" method="POST">
+                    <input type="hidden" name="_subject"
+                        value="Nuevo interesado en la Lista de Espera - Proyecto Nómade">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="destino" required>
+                                <option value="" disabled selected>¿Qué destino te interesa?</option>
+                                <option value="Sudeste Asiático">Sudeste Asiático</option>
+                                <option value="Europa Oculta">Europa Oculta</option>
+                                <option value="Japón Primitivo">Japón Primitivo</option>
+                                <option value="Patagonia Aventura">Patagonia Aventura</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                        Anotarme a la lista de espera
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">PROYECTO NÓMADE</div>
+                    <p>Expertos en convertir sueños en rutas. Tu próxima aventura comienza con un mensaje.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#historia">Historia</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Seguinos</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/proyectonomades/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@proyectonomade" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Proyecto Nómade. Diseñado con pasión para el mundo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 968px) {
+
+    .story-grid,
+    .footer-grid,
+    .bot-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
