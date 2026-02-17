@@ -1495,11 +1495,13 @@ footer {
     scrollbar-color: var(--secondary) transparent;
 }
 
-.experience-card:hover .experience-story {
+.experience-card:hover .experience-story,
+.experience-card.active-story .experience-story {
     opacity: 1;
 }
 
-.experience-card:hover .experience-label {
+.experience-card:hover .experience-label,
+.experience-card.active-story .experience-label {
     opacity: 0;
 }
 
@@ -1706,9 +1708,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .experiences-wrapper {
+        padding: 0 20px;
+    }
+
     .experience-card {
         flex: 0 0 280px;
-        height: 400px;
+        height: 480px;
     }
 
     .narrative-perks {

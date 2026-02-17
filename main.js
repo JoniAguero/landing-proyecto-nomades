@@ -122,6 +122,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Auto-rotate stories on mobile/tablet
+        const experienceCards = document.querySelectorAll('.experience-card');
+        if (experienceCards.length > 0) {
+            let currentStoryIndex = -1;
+            let storyInterval;
+
+            const rotateStories = () => {
+                experienceCards.forEach(card => card.classList.remove('active-story'));
+                currentStoryIndex = (currentStoryIndex + 1) % experienceCards.length;
+                experienceCards[currentStoryIndex].classList.add('active-story');
+            };
+
+            const startStoryRotation = () => {
+                if (storyInterval) clearInterval(storyInterval);
+                storyInterval = setInterval(rotateStories, 5000);
+            };
+
+            const stopStoryRotation = () => {
+                clearInterval(storyInterval);
+                experienceCards.forEach(card => card.classList.remove('active-story'));
+            };
+
+            // Start observation for viewport trigger
+            const carouselObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Start immediately and then interval
+                        rotateStories();
+                        startStoryRotation();
+                        // Once started, we can stop observing this section
+                        carouselObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% visible
+
+            carouselObserver.observe(carousel);
+
+            // Pause on hover
+            experienceCards.forEach(card => {
+                card.addEventListener('mouseenter', stopStoryRotation);
+                card.addEventListener('mouseleave', startStoryRotation);
+                // On touch, we show the story and stop auto-rotation temporarily
+                card.addEventListener('touchstart', () => {
+                    stopStoryRotation();
+                    experienceCards.forEach(c => c.classList.remove('active-story'));
+                    card.classList.add('active-story');
+                    // Resume after 8 seconds of inactivity
+                    setTimeout(startStoryRotation, 8000);
+                }, { passive: true });
+            });
+        }
+
         // Hide hint on first scroll
         carousel.addEventListener('scroll', () => {
             const hint = document.querySelector('.carousel-hint');
