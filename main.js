@@ -99,4 +99,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Experiences Carousel Navigation
+    const carousel = document.querySelector('.experiences-carousel');
+    const prevBtn = document.querySelector('.carousel-nav.prev');
+    const nextBtn = document.querySelector('.carousel-nav.next');
+
+    if (carousel && prevBtn && nextBtn) {
+        const scrollAmount = 400;
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Hide hint on first scroll
+        carousel.addEventListener('scroll', () => {
+            const hint = document.querySelector('.carousel-hint');
+            if (hint && carousel.scrollLeft > 50) {
+                hint.style.opacity = '0';
+                setTimeout(() => { if (hint.parentNode) hint.remove(); }, 500);
+            }
+        }, { once: true });
+    }
 });
