@@ -48,10 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Watch all elements with .reveal class
-    document.querySelectorAll('.reveal, .service-card, .blog-card, article').forEach(el => {
-        if (!el.classList.contains('reveal')) {
+    // Watch all elements with reveal classes
+    const revealElements = document.querySelectorAll('.reveal, .reveal-hook, .reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .service-card, .blog-card, article');
+    
+    revealElements.forEach(el => {
+        // Ensure base classes are present for default reveal if not already specialized
+        if (!el.classList.contains('reveal') && !el.classList.contains('reveal-hook')) {
             el.classList.add('reveal');
+            if (!el.className.match(/reveal-(up|left|right|zoom)/)) {
+                el.classList.add('reveal-up'); // Default
+            }
         }
         observer.observe(el);
     });

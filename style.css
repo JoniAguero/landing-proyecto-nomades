@@ -189,7 +189,6 @@ h4 {
 
 .hero-content-section {
     background: var(--bg-light);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .hero-content {
@@ -749,11 +748,7 @@ footer {
     }
 }
 
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: var(--transition);
-}
+
 
 /* --- Audit Section (Impactful Green) --- */
 .audit-section {
@@ -1288,41 +1283,158 @@ footer {
     }
 }
 
+/* --- Reveal Animations System --- */
+.reveal {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-up {
+    transform: translateY(40px);
+}
+
+.reveal-down {
+    transform: translateY(-40px);
+}
+
+.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    transform: translateX(40px);
+}
+
+.reveal-zoom {
+    transform: scale(0.95);
+}
+
 .reveal.active {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Premium Hook Animation */
+.reveal-hook {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: blur(5px);
+}
+
+.reveal-hook.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+.reveal-hook blockquote {
+    transition: letter-spacing 2s ease-out;
+}
+
+.reveal-hook.active blockquote {
+    letter-spacing: 0.5px;
 }
 
 @media (max-width: 968px) {
 
     .story-grid,
     .footer-grid,
-    .bot-banner,
-    .comparison-grid {
+    .bot-banner {
         grid-template-columns: 1fr;
     }
 
+    .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
     .waitlist-card,
-    .comparison-card,
     .bot-banner {
         padding: 40px 20px;
     }
 
+    .comparison-card {
+        padding: 20px 15px;
+    }
+
+    .comparison-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .comparison-card li {
+        font-size: 0.85rem;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
     .audit-banner {
-        padding: 40px 15px;
+        padding: 30px 15px;
+        /* Compact padding */
+    }
+
+    .audit-header h2 {
+        font-size: 1.8rem;
+        /* Slightly smaller for mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .audit-header p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        /* Reduced margin */
+    }
+
+    .audit-grid {
+        gap: 12px;
+        /* Smaller gap */
+        margin-bottom: 20px;
+    }
+
+    .audit-item {
+        padding: 15px 10px;
+        /* Compact item padding */
     }
 
     .form-grid {
         grid-template-columns: 1fr;
     }
 
-    .hero-content h1 {
-        font-size: 2.2rem;
+    .section-title {
+        margin-bottom: 30px;
     }
 
-    .hero-video {
-        height: 75vh;
-        object-fit: cover;
+    .process-steps {
+        gap: 20px;
+    }
+
+    .step-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+        top: -15px;
+        left: 20px;
+    }
+
+    .step-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+
+    .navbar {
+        background: rgba(26, 60, 52, 0.95);
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
     }
 
     .hero-actions {
@@ -1339,8 +1451,106 @@ footer {
         display: none;
     }
 
-    .navbar {
-        background: rgba(26, 60, 52, 0.95);
+    .hero {
+        padding-top: 80px;
+        /* Account for fixed header */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-light) !important;
+    }
+
+    .hero-video {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        /* Balanced height for mobile */
+        object-fit: cover;
+        z-index: 1;
+        top: auto;
+        left: auto;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        /* User-specified precise alignment */
+        top: calc(50% + -34px) !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 70vh;
+        /* Must match .hero-video exactly */
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 1;
+        color: var(--primary);
+    }
+
+    .scroll-indicator .mouse {
+        border-color: var(--primary);
+    }
+
+    .scroll-indicator .mouse::before {
+        background: var(--primary);
+    }
+
+    .scroll-indicator p {
+        margin: 10px 0 0;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    /* Aggressive global compaction for mobile (All sections below hero) */
+    section:not(.hero),
+    .hero-content-section,
+    .trajectory,
+    .audit-section,
+    .process-section,
+    .experiences-carousel,
+    .services,
+    .social-proof,
+    .method-section,
+    .comparison-section,
+    .blog,
+    .bot-section,
+    .upcoming-trips,
+    .faq-section {
+        padding: 40px 0 !important;
+    }
+
+    .hero-content {
+        padding: 60px 5% !important;
+        /* Increased for "hook" impact */
+    }
+
+    .bot-banner {
+        padding: 30px 20px !important;
+    }
+
+    .faq-cta,
+    .comparison-cta {
+        padding: 30px 20px !important;
+    }
+
+    footer {
+        padding: 40px 0 20px !important;
     }
 }
 
@@ -1708,6 +1918,19 @@ footer {
 }
 
 @media (max-width: 768px) {
+    html {
+        font-size: 90%;
+        /* Scale all rem units down by 10% for mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+
+    .section-title h2 {
+        font-size: 1.6rem !important;
+    }
+
     .experiences-wrapper {
         padding: 0 20px;
     }
