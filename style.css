@@ -1315,12 +1315,17 @@ footer {
     transform: translate(0, 0) scale(1) !important;
 }
 
-/* Premium Hook Animation */
+/* Premium Hook Animation - Refined */
 .reveal-hook {
     opacity: 0;
-    transform: translateY(20px) scale(0.98);
-    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-    filter: blur(5px);
+    transform: translateY(30px) scale(0.95);
+    /* More intentional zoom */
+    transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 1.2s ease-out,
+        filter 1.2s ease-out;
+    filter: blur(3px);
+    /* Subtle blur, not overpowering */
+    will-change: transform, opacity, filter;
 }
 
 .reveal-hook.active {
@@ -1329,12 +1334,21 @@ footer {
     filter: blur(0);
 }
 
+/* Remove redundant child transition that causes weirdness */
 .reveal-hook blockquote {
-    transition: letter-spacing 2s ease-out;
+    transition: none;
+    /* Let parent handle entrance */
 }
 
-.reveal-hook.active blockquote {
-    letter-spacing: 0.5px;
+@media (min-width: 769px) {
+    .reveal-hook blockquote {
+        transition: letter-spacing 2s ease-out 0.5s;
+        /* Delay letter-spacing for elegant finish */
+    }
+
+    .reveal-hook.active blockquote {
+        letter-spacing: 0.5px;
+    }
 }
 
 @media (max-width: 968px) {
@@ -1536,8 +1550,12 @@ footer {
     }
 
     .hero-content {
+        padding: 40px 5% !important;
+    }
+
+    .emotional-block {
         padding: 60px 5% !important;
-        /* Increased for "hook" impact */
+        /* Corrected: Extra impact for hook section */
     }
 
     .bot-banner {
